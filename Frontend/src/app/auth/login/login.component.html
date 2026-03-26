@@ -1,0 +1,42 @@
+<div class="login-container">
+  <div class="login-box">
+
+    <div class="logo">
+      🚗 <span>Uber Booking</span>
+    </div>
+
+    <p class="tagline">Sign in to continue</p>
+
+    <form (ngSubmit)="login()">
+
+      <div class="input-field">
+        <input
+          type="email"
+          name="email"
+          placeholder="Email address"
+          [(ngModel)]="email"
+          required>
+      </div>
+
+      <div class="input-field">
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          required>
+      </div>
+
+      <button type="submit" class="login-btn">
+        Login
+      </button>
+
+    </form>
+
+    <p class="bottom-text">
+      New user?
+      <span routerLink="/register">Register</span>
+    </p>
+
+  </div>
+</div>

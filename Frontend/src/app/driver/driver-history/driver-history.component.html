@@ -1,0 +1,114 @@
+<div class="history-container">
+
+  <div class="top-bar">
+    <button class="back-btn" routerLink="/driver">← Back</button>
+    <h2>🚗 Ride History</h2>
+  </div>
+
+  <input 
+    type="text"
+    placeholder="🔍 Search by location..."
+    [(ngModel)]="searchText"
+    (input)="applyFilter()"
+    class="search-box"
+  />
+
+  <!-- RIDES GRID -->
+  <div class="rides-grid">
+
+    <div 
+      *ngFor="let ride of filteredRides"
+      class="ride-card"
+      [class.active]="selectedRide?._id === ride._id"
+      (click)="selectRide(ride)"
+    >
+
+      <div class="route">
+        {{ ride.pickup }} → {{ ride.drop }}
+      </div>
+
+      <div class="card-meta">
+        <span class="fare">₹ {{ ride.fare }}</span>
+        <span class="status">{{ ride.status }}</span>
+      </div>
+
+      <div class="date">
+        {{ ride.createdAt | date:'medium' }}
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- DETAILS PANEL -->
+  <div class="details-panel" *ngIf="selectedRide">
+
+    <div class="details-header">
+      <h3>Ride Details</h3>
+      <button class="close-btn" (click)="closeDetails()">✕</button>
+    </div>
+
+    <!-- USER INFO -->
+    <div class="user-section">
+
+      <div class="avatar">
+        {{ selectedRide?.userId?.name ? selectedRide.userId.name[0] : 'U' }}
+      </div>
+
+      <div class="user-info">
+        <div class="name">
+          {{ selectedRide?.userId?.name }}
+        </div>
+
+        <div class="email">
+          {{ selectedRide?.userId?.email}}
+        </div>
+
+        <div class="userid">
+          ID: {{ selectedRide?.userId?._id || selectedRide?.userId }}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIDE DETAILS -->
+    <div class="details-grid">
+
+      <div>
+        <strong>Pickup:</strong> {{ selectedRide?.pickup }}
+      </div>
+
+      <div>
+        <strong>Drop:</strong> {{ selectedRide?.drop }}
+      </div>
+
+      <div>
+        <strong>Fare:</strong> ₹ {{ selectedRide?.fare }}
+      </div>
+
+      <div>
+        <strong>Distance:</strong> {{ selectedRide?.distance || 0 }} km
+      </div>
+
+      <div>
+        <strong>Date:</strong> {{ selectedRide?.createdAt | date:'medium' }}
+      </div>
+
+      <div>
+        <strong>Rating:</strong> {{ selectedRide?.rating || 'Not Rated' }}
+      </div>
+
+      <div>
+        <strong>Status:</strong> {{ selectedRide?.status }}
+      </div>
+
+      <div>
+        <strong>Payment:</strong> {{ selectedRide?.paymentMethod || 'N/A' }}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

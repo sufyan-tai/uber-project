@@ -1,0 +1,79 @@
+<div class="history-wrapper">
+
+  <div class="history-left">
+
+    <!-- FILTER BAR -->
+    <div class="history-filters">
+
+      <input
+        type="text"
+        placeholder="🔍 Search by location..."
+        [(ngModel)]="searchText"
+        (input)="applyFilters()">
+
+      <select [(ngModel)]="selectedStatus" (change)="applyFilters()">
+        <option value="">All Status</option>
+        <option value="pending">Pending</option>
+        <option value="accepted">Accepted</option>
+        <option value="on_the_way">On The Way</option>
+        <option value="started">Started</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+
+      <input
+        type="date"
+        [(ngModel)]="selectedDate"
+        (change)="applyFilters()">
+
+      <button (click)="clearFilters()">Clear</button>
+
+    </div>
+
+    <h2 class="title">🚕 My Rides</h2>
+
+    <!-- ✅ GRID CONTAINER -->
+    <div class="rides-container">
+
+      <!-- ✅ PROPER NGFOR -->
+      <div
+        class="ride-card"
+        *ngFor="let r of filteredRides"
+        (click)="openRide(r._id)">
+
+        <p class="route">
+          <b>{{ r.pickup }}</b> → {{ r.drop }}
+        </p>
+
+        <p class="ride-date">
+          {{ r.createdAt | date:'dd MMM yyyy, hh:mm:ss a' }}
+        </p>
+
+        <p>Status:
+          <span class="status status-{{ r.status }}">
+            {{ r.status | titlecase }}
+          </span>
+        </p>
+
+        <p>Fare: ₹ {{ r.fare }}</p>
+
+        <!-- ⭐ RATE BUTTON -->
+        <button
+          *ngIf="r.status === 'completed' && !r.rating"
+          class="rate-btn"
+          (click)="rateRide(r); $event.stopPropagation();">
+          ⭐ Rate Ride
+        </button>
+
+        <!-- ⭐ RATING DISPLAY -->
+        <div *ngIf="r.rating" class="rating-display">
+          ⭐ {{ r.rating }}/5
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

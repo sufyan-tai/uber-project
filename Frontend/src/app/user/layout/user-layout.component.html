@@ -1,0 +1,44 @@
+<div class="layout">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>🚗 Uber</h2>
+
+    <a routerLink="/user/dashboard" routerLinkActive="active">
+      Dashboard
+    </a>
+
+    <a routerLink="/user/book" routerLinkActive="active">
+      Book Ride
+    </a>
+
+    <a routerLink="/user/history" routerLinkActive="active">
+      Ride History
+    </a>
+
+    <a routerLink="/user/about" routerLinkActive="active">
+      About Us
+    </a>
+
+    <a routerLink="/user/contact" routerLinkActive="active">
+      Contact Us
+    </a>
+
+
+    <button class="logout" (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="topbar">
+      👋 Welcome, {{ user.name }}
+    </div>
+
+    <div class="page">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>

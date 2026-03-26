@@ -1,0 +1,100 @@
+/* ================================= */
+/* GLOBAL FONT (PURE PROJECT)       */
+/* ================================= */
+html, body {
+  background: #000 !important;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0f172a; /* dark theme base */
+  color: #fff;
+}
+
+/* ================================= */
+/* LOGIN PAGE                        */
+/* ================================= */
+
+.login-container {
+  height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 340px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.login-box h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ================================= */
+/* USER BOOK RIDE                    */
+/* ================================= */
+
+.ride-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ride-card {
+  width: 360px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ride-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ride-card input,
+.ride-card select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.ride-card button {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}

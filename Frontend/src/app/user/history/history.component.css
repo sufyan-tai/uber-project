@@ -1,0 +1,220 @@
+* {
+  font-family: 'Inter', sans-serif;
+}
+.history-wrapper {
+  padding: 60px 40px;
+  max-width: 1350px;   
+  margin: 0 auto;
+}
+
+.history-left {
+  width: 100%;
+}
+
+
+.history-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.history-filters input,
+.history-filters select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  outline: none;
+  backdrop-filter: blur(10px);
+  min-width: 180px;
+}
+
+.history-filters input::placeholder {
+  color: #aaa;
+}
+
+.history-filters button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #00ff88, #00c853);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.history-filters button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,255,136,0.4);
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+
+.rides-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 30px;             
+  margin-top: 30px;
+}
+
+
+.ride-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 22px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ride-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Route Text */
+.route {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+/* Date */
+.ride-date {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+/* Fare */
+.ride-card p {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+/* ================= STATUS BADGES ================= */
+
+.status {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+/* Completed */
+.status-completed {
+  background: rgba(0,255,136,0.15);
+  color: #00ff88;
+}
+
+/* Pending */
+.status-pending {
+  background: rgba(255,193,7,0.15);
+  color: #ffc107;
+}
+
+/* Accepted */
+.status-accepted {
+  background: rgba(0,123,255,0.15);
+  color: #4da3ff;
+}
+
+/* On The Way */
+.status-on_the_way {
+  background: rgba(138,43,226,0.15);
+  color: #b388ff;
+}
+
+/* Started */
+.status-started {
+  background: rgba(255,87,34,0.15);
+  color: #ff7043;
+}
+
+/* Cancelled */
+.status-cancelled {
+  background: rgba(255,0,0,0.15);
+  color: #ff4d4d;
+}
+
+/* ================= RATE BUTTON ================= */
+
+.rate-btn {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #ffb300, #ff8f00);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.rate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255,179,0,0.4);
+}
+
+/* Rating Display */
+.rating-display {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ffd54f;
+  font-weight: 600;
+}
+/* History Filters Dropdown */
+.history-filters select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  outline: none;
+  backdrop-filter: blur(10px);
+  min-width: 180px;
+  display: block; /* Ensure it's displayed properly */
+}
+
+.history-filters select:focus {
+  border-color: #00ff88; /* Add focus state */
+}
+.history-filters select:hover {
+  border-color: #00ff88; /* Change border color on hover */
+  background: rgba(255, 255, 255, 0.1); /* Lighten the background on hover */
+}/* History Filters Dropdown */
+.history-filters select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  outline: none;
+  backdrop-filter: blur(10px);
+  min-width: 180px;
+}
+
+/* Update color for dropdown options */
+.history-filters select option {
+  color: black; /* Set text color to black for better visibility */
+}
+
+/* Focus and Hover States */
+.history-filters select:focus {
+  border-color: #00ff88;
+}
+
+.history-filters select:hover {
+  border-color: #00ff88;
+  background: rgba(255, 255, 255, 0.1);
+}

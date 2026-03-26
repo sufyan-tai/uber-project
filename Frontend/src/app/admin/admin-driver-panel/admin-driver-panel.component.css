@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+.driver-panel{
+padding:40px;
+min-height:100vh;
+font-family:'Inter',sans-serif;
+color:#e5e7eb;
+
+/* Uber dark background */
+background:linear-gradient(
+180deg,
+#000000,
+#0a0a0a,
+#121212
+);
+}
+
+/* HEADER */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:40px;
+}
+
+.header h1{
+font-size:26px;
+font-weight:600;
+letter-spacing:.4px;
+color:#ffffff;
+}
+
+/* BACK BUTTON */
+
+.back-btn{
+background:#181818;
+padding:10px 18px;
+border-radius:8px;
+text-decoration:none;
+color:#e5e7eb;
+font-size:14px;
+font-weight:500;
+
+border:1px solid #262626;
+
+transition:all .25s ease;
+}
+
+.back-btn:hover{
+background:#242424;
+transform:translateY(-2px);
+
+box-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* DRIVER CARD */
+
+.driver-card{
+background:#141414;
+
+padding:26px;
+
+border-radius:14px;
+
+margin-bottom:40px;
+
+border:1px solid #1f1f1f;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.7);
+}
+
+.driver-card h2{
+margin-bottom:10px;
+font-size:20px;
+font-weight:600;
+}
+
+/* STATUS BADGES */
+
+.status{
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:500;
+}
+
+.online{background:#16a34a;}
+.offline{background:#dc2626;}
+.available{background:#22c55e;}
+.busy{background:#ef4444;}
+
+/* STATS GRID */
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+margin:35px 0;
+}
+
+/* STAT CARDS */
+
+.stat-card{
+background:#141414;
+
+padding:24px;
+
+border-radius:14px;
+
+text-align:center;
+
+border:1px solid #1f1f1f;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.7);
+
+transition:all .25s ease;
+}
+
+.stat-card:hover{
+transform:translateY(-5px);
+
+background:#1a1a1a;
+
+box-shadow:0 16px 35px rgba(0,0,0,0.9);
+}
+
+.stat-card h3{
+font-size:13px;
+color:#9ca3af;
+margin-bottom:8px;
+font-weight:500;
+}
+
+.stat-card p{
+font-size:30px;
+font-weight:600;
+letter-spacing:.5px;
+}
+
+/* COLORS */
+
+.completed p{color:#22c55e;}
+.cancelled p{color:#ef4444;}
+.earnings p{color:#facc15;}
+
+/* TABLE */
+
+table{
+width:100%;
+border-collapse:collapse;
+
+background:#141414;
+
+border-radius:12px;
+
+overflow:hidden;
+
+border:1px solid #1f1f1f;
+
+box-shadow:0 8px 30px rgba(0,0,0,0.7);
+}
+
+thead{
+background:#000000;
+}
+
+th{
+padding:16px;
+text-align:left;
+font-size:13px;
+color:#9ca3af;
+font-weight:500;
+letter-spacing:.3px;
+}
+
+td{
+padding:16px;
+border-bottom:1px solid #1f1f1f;
+font-size:14px;
+color:#e5e7eb;
+}
+
+tr{
+transition:background .2s;
+}
+
+tr:hover{
+background:#1a1a1a;
+}
+
+/* STATUS COLORS IN TABLE */
+
+.completed{
+color:#22c55e;
+font-weight:500;
+}
+
+.cancelled{
+color:#ef4444;
+font-weight:500;
+}

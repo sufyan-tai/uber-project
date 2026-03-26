@@ -1,0 +1,245 @@
+/* ===============================
+   PAGE BACKGROUND - MATTE BLACK
+=================================*/
+.profile-container {
+  min-height: 100vh;
+  padding: 50px 80px;
+  background: #0b0b0c;
+  color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* ===============================
+   BACK BUTTON
+=================================*/
+.top-bar button {
+  background: #1c1c1f;
+  color: #fff;
+  border: 1px solid #2a2a2e;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.top-bar button:hover {
+  background: #2a2a2e;
+}
+
+/* ===============================
+   PROFILE CARD
+=================================*/
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 35px;
+  margin-top: 25px;
+  border-radius: 18px;
+  background: #121214;
+  border: 1px solid #1f1f23;
+  transition: 0.3s;
+}
+
+.profile-card:hover {
+  border-color: #2d2d32;
+}
+
+/* AVATAR */
+.avatar {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: #1f1f23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 600;
+  color: #22c55e; /* Uber green accent */
+}
+
+/* INFO */
+.info h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.info p {
+  color: #9ca3af;
+  margin: 3px 0;
+  font-size: 14px;
+}
+
+/* ===============================
+   ONLINE STATUS
+=================================*/
+.availability {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.availability span.online {
+  color: #22c55e;
+  font-weight: 500;
+}
+
+.availability span {
+  font-size: 14px;
+}
+
+.availability button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #2a2a2e;
+  background: #1c1c1f;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.availability button:hover {
+  background: #2a2a2e;
+}
+
+/* ===============================
+   SECTION CARDS
+=================================*/
+.card {
+  margin-top: 35px;
+  padding: 30px;
+  border-radius: 18px;
+  background: #121214;
+  border: 1px solid #1f1f23;
+}
+
+/* SECTION TITLE */
+.card h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #9ca3af;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* BIG RATING */
+.card h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* TEXT */
+.card p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #d1d5db;
+}
+
+/* ===============================
+   REVIEWS
+=================================*/
+.review-item {
+  margin-top: 15px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #18181b;
+  border: 1px solid #222226;
+  transition: 0.25s ease;
+}
+
+.review-item:hover {
+  background: #1f1f23;
+}
+
+.review-item strong {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.review-item p {
+  margin: 4px 0;
+  color: #a1a1aa;
+}
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+@media (max-width: 1024px) {
+  .profile-container {
+    padding: 40px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 30px 20px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .card h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 20px 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 28px;
+  }
+}
+.financial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.finance-card {
+  background: #111827;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #1f2937;
+}
+
+.finance-card h4 {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.finance-card p {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.commission {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.net {
+  border-color: #22c55e;
+  color: #22c55e;
+}

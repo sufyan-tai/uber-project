@@ -1,0 +1,175 @@
+/* ============================= */
+/* RIDE DETAILS - FINAL VERSION  */
+/* ============================= */
+
+.ride-details-wrapper {
+  padding: 60px 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ================= HEADER ================= */
+
+.ride-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.ride-header h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.ride-date {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+/* ================= STATUS BADGE ================= */
+
+.ride-status {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+}
+
+/* Completed */
+.status-completed {
+  background: rgba(0,255,136,0.15);
+  color: #00ff88;
+  border: 1px solid rgba(0,255,136,0.4);
+}
+
+/* Pending */
+.status-pending {
+  background: rgba(255,193,7,0.15);
+  color: #ffc107;
+  border: 1px solid rgba(255,193,7,0.4);
+}
+
+/* Started */
+.status-started {
+  background: rgba(255,87,34,0.15);
+  color: #ff7043;
+  border: 1px solid rgba(255,87,34,0.4);
+}
+
+/* Cancelled */
+.status-cancelled {
+  background: rgba(255,0,0,0.15);
+  color: #ff4d4d;
+  border: 1px solid rgba(255,0,0,0.4);
+}
+
+/* ================= GLASS CARDS ================= */
+
+.route-card,
+.fare-card,
+.payment-card,
+.rating-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.route-card:hover,
+.fare-card:hover,
+.payment-card:hover,
+.rating-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* ================= ROUTE SECTION ================= */
+
+.route-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.route-card .location {
+  flex: 1;
+}
+
+.route-card .location h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.label {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Arrow */
+.arrow {
+  font-size: 28px;
+  color: #00ff88;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 0.6; transform: scale(1); }
+}
+
+/* ================= FARE SECTION ================= */
+
+.fare-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 15px;
+}
+
+.fare-row.total {
+  font-weight: 700;
+  color: #00ff88;
+  margin-top: 18px;
+  font-size: 17px;
+}
+
+/* ================= DOWNLOAD BUTTON ================= */
+
+.download-btn {
+  background: linear-gradient(135deg, #00ff88, #00c853);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: #000;
+  margin-top: 15px;
+}
+
+.download-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0,255,136,0.4);
+}
+.expired-message{
+margin-top:20px;
+padding:15px;
+border-radius:10px;
+background:#1a1a1a;
+color:#ffb020;
+font-weight:500;
+}

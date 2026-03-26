@@ -1,0 +1,64 @@
+<div class="users-container">
+
+<h1>👤 All Users</h1>
+
+<div class="filters">
+
+<input
+type="text"
+placeholder="Search user..."
+[(ngModel)]="searchText"
+(input)="applySearch()">
+
+</div>
+
+<div *ngIf="loading">
+Loading users...
+</div>
+
+<table *ngIf="!loading && filteredUsers.length">
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Joined Date</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr *ngFor="let user of filteredUsers">
+
+<td>
+<a [routerLink]="['/admin/user-panel', user._id]">
+{{user.name}}
+</a>
+</td>
+
+<td>{{user.email}}</td>
+
+<td>{{user.phone || '-'}}</td>
+
+<td>
+{{user.createdAt | date:'dd MMM yyyy'}}
+</td>
+
+<td>
+<span class="status active">
+Active
+</span>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<button class="back-btn" routerLink="/admin">
+    ← Back to Dashboard
+  </button>
+
+</div>

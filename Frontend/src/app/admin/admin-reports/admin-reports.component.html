@@ -1,0 +1,41 @@
+<div class="reports-container">
+
+<h1>📊 Ride Reports</h1>
+
+<button class="export-btn" (click)="exportReports()">
+⬇ Export CSV
+</button>
+
+<table>
+
+<thead>
+<tr>
+<th>Date</th>
+<th>Total Rides</th>
+<th>Completed</th>
+<th>Cancelled</th>
+<th>Revenue</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr *ngFor="let r of reports">
+
+<td>{{r._id}}</td>
+<td>{{r.totalRides}}</td>
+<td>{{r.completed}}</td>
+<td>{{r.cancelled}}</td>
+<td class="revenue">₹{{r.revenue}}</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<button routerLink="/admin" class="back-btn">
+← Back to Dashboard
+</button>
+
+</div>

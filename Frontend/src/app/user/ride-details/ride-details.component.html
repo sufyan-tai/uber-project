@@ -1,0 +1,78 @@
+<div *ngIf="!ride">
+  <h2>Loading Ride...</h2>
+</div>
+
+<div class="ride-details-wrapper" *ngIf="ride">
+
+  <!-- HEADER -->
+  <div class="ride-header">
+    <div>
+      <h2>🚗 Ride Details</h2>
+      <p class="ride-date">
+        {{ ride.createdAt | date:'dd MMM yyyy, hh:mm a' }}
+      </p>
+    </div>
+
+    <span class="ride-status status-{{ ride.status }}">
+      {{ ride.status | titlecase }}
+    </span>
+  </div>
+
+  <!-- ROUTE CARD -->
+  <div class="route-card">
+    <div class="location">
+      <span class="label">Pickup</span>
+      <h3>{{ ride.pickup }}</h3>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="location" style="text-align:right">
+      <span class="label">Drop</span>
+      <h3>{{ ride.drop }}</h3>
+    </div>
+  </div>
+
+  <div class="expired-message" *ngIf="ride.status === 'expired'">
+         ⚠ No driver accepted your ride.  
+         Please try booking again.
+  </div>
+  <!-- FARE CARD -->
+  <div class="fare-card" *ngIf="ride.status !== 'expired' && ride.status !== 'cancelled'">
+    <h3>💳 Fare Breakdown</h3>
+    <div class="fare-row">
+      <span>Distance</span>
+      <span>{{ ride.distance }} km</span>
+    </div>
+    <div class="fare-row">
+      <span>Base Fare</span>
+      <span>₹ {{ ride.fare }}</span>
+    </div>
+
+    <div class="fare-row total">
+      <span>Total</span>
+      <span>₹ {{ totalAmount() }}</span>
+    </div>
+  </div>
+      
+
+  <!-- PAYMENT INFO -->
+  <div class="payment-card" *ngIf="ride.status !== 'expired' && ride.status !== 'cancelled'">
+    <h3>Payment Info</h3>
+    <p><strong>Method:</strong> {{ ride.paymentMethod }}</p>
+    <p><strong>Status:</strong> {{ ride.paymentStatus | titlecase }}</p>
+  </div>
+
+  <!-- RATING -->
+  <div class="rating-card" *ngIf="ride.rating">
+    <h3>⭐ Rating</h3>
+    <p>{{ ride.rating }}/5</p>
+    <p class="review">{{ ride.review }}</p>
+  </div>
+
+  <!-- DOWNLOAD BUTTON -->
+  <button (click)="downloadInvoice()" class="download-btn">
+    📄 Download Invoice
+  </button>
+
+</div>

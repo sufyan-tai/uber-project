@@ -1,0 +1,80 @@
+.about-container {
+  padding: 60px;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #111 0%, #000 60%);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+.card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 18px;
+  margin-bottom: 30px;
+  transition: 0.3s ease;
+}
+
+.card p,
+.card li {
+  color: #cccccc;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #00ff88;
+  font-size: 22px;
+}
+
+.card ul {
+  padding-left: 20px;
+}
+
+.card li {
+  margin-bottom: 8px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0,255,136,0.2);
+}
+
+.developer {
+  margin-top: 50px;
+  font-size: 14px;
+  color: #aaaaaa;
+}
+/* ===== FOOTER SECTION ===== */
+.about-footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn {
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #00ff88, #00c853);
+  color: #000;
+
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}

@@ -1,0 +1,1029 @@
+/* ===== BACKGROUND ===== */
+.dashboard {
+  font-family: 'Inter', sans-serif;
+  padding: 50px;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #111 0%, #000 60%);
+  color: #fff;
+}
+
+/* ===== WELCOME ===== */
+.welcome {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+}
+
+/* ===== BOOK BUTTON ===== */
+.book-btn {
+  background: linear-gradient(135deg, #00ff88, #00c853);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.6);
+}
+/* ===== STATS SECTION ===== */
+.stats {
+  display: flex;
+  gap: 25px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+/* ===== GLASS CARD ===== */
+.card {
+  flex: 1;
+  padding: 30px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== STAT TITLE ===== */
+.card h3 {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 500;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== STAT NUMBER (GLOW) ===== */
+.card p {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* COLOR GLOW */
+.total p {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.pending p {
+  color: #ffcc00;
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+}
+
+.completed p {
+  color: #00ff88;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
+}
+
+/* ===== ACTIVE RIDE CARD ===== */
+.active-card {
+  padding: 30px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  margin-bottom: 40px;
+}
+
+.active-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.active-card p {
+  font-size: 14px;
+  margin: 8px 0;
+  letter-spacing: 0.4px;
+}
+
+/* ===== STATUS BADGE ===== */
+.status {
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-pending {
+  background: rgba(255, 204, 0, 0.2);
+  color: #ffcc00;
+}
+
+.status-accepted {
+  background: rgba(0, 255, 136, 0.2);
+  color: #00ff88;
+}
+
+.status-completed {
+  background: rgba(0, 176, 255, 0.2);
+  color: #00b0ff;
+}
+
+/* ===== MOOD BADGE ===== */
+.mood-badge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* ===== RECENT RIDES ===== */
+.recent-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.ride-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ride-card {
+  width: 250px;
+  padding: 20px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  transition: 0.4s ease;
+}
+
+.ride-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+}
+
+.route {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.cancel-btn {
+  margin-top: 15px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 80, 80, 0.4);
+  background: rgba(255, 0, 0, 0.08);
+  color: #ff4d4d;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 0, 0, 0.15);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .ride-card {
+    width: 100%;
+  }
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.top-links {
+  display: flex;
+  gap: 25px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.top-links span {
+  color: #ccc;
+  transition: 0.3s ease;
+}
+
+.top-links span:hover {
+  color: #00ff88;
+}
+
+.logout-btn {
+  color: #ff4d4d;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  text-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
+}
+.nav-link {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.nav-link:hover {
+  color: #00ff88;
+}
+.logout-btn {
+  background: #ff2e2e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #ff0000;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.action-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.action-links span {
+  color: #ccc;
+  transition: 0.3s ease;
+}
+
+.action-links span:hover {
+  color: #00ff88;
+}
+
+.logout-btn {
+  background: #ff2e2e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #ff0000;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+.rating-overlay {
+  position: fixed !important;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+.rating-modal {
+  width: 420px;
+  padding: 30px;
+  border-radius: 20px;
+
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 0 60px rgba(0, 255, 136, 0.15);
+
+  animation: popIn 0.25s ease;
+}
+
+.rating-modal h2 {
+  margin-bottom: 10px;
+}
+
+.ride-route {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.star-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 34px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.star-container span {
+  color: #444;
+  transition: 0.2s ease;
+}
+
+.star-container span.active {
+  color: #ffaa00;
+  text-shadow: 0 0 12px #ffaa00;
+}
+
+.star-container span:hover {
+  transform: scale(1.15);
+}
+
+.rating-modal textarea {
+  width: 100%;
+  height: 90px;
+  border-radius: 12px;
+  border: none;
+  padding: 12px;
+  background: #1a1a1a;
+  color: white;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+.rating-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.submit-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  background: linear-gradient(135deg, #00ff88, #00c853);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+
+.cancel-btn2 {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #333;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.cancel-btn2:hover {
+  background: #444;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.active-ride-card {
+  background: rgba(0,255,136,0.05);
+  border: 1px solid #00ff88;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+.paid-badge {
+  color: #00ff88;
+  font-weight: 600;
+}
+
+.unpaid-badge {
+  color: #ff4d4d;
+  font-weight: 600;
+}
+.timeline {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step {
+  padding: 6px 10px;
+  border-left: 3px solid #555;
+  color: #888;
+  transition: 0.3s ease;
+}
+
+.step.active {
+  border-left: 3px solid #00ff88;
+  color: #00ff88;
+  font-weight: 600;
+}
+/* ===== NOTIFICATION ===== */
+
+.notification-wrapper {
+  position: relative;
+  margin-right: 20px;
+}
+
+/* Bell */
+.bell {
+  cursor: pointer;
+  font-size: 22px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* 🔥 Glow when unread */
+.bell.unread {
+  animation: bellGlow 1.5s infinite alternate;
+}
+
+@keyframes bellGlow {
+  from { text-shadow: 0 0 5px #ffd700; }
+  to { text-shadow: 0 0 18px #ffd700; }
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #00ff88;
+  color: #000;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Dropdown */
+.notification-dropdown {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  width: 320px;
+  max-height: 350px;
+  overflow-y: auto;
+
+  background: rgba(18,18,18,0.98);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 15px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+
+  animation: slideIn 0.25s ease forwards;
+  z-index: 2000;
+}
+
+/* Slide from right */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.notification-dropdown h4 {
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.notification-item {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
+  background: rgba(255,255,255,0.05);
+  transition: 0.2s ease;
+}
+
+.notification-item:hover {
+  background: rgba(0,255,136,0.12);
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  padding: 15px 0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ===== NOTIFICATION CARD ===== */
+
+.notification-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 18px;
+
+  background: rgba(255, 204, 0, 0.05);
+  border: 1px solid rgba(255, 204, 0, 0.3);
+
+  backdrop-filter: blur(18px);
+
+  animation: slideDown 0.3s ease;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ffd700;
+}
+
+.notification-row {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 8px;
+
+  background: rgba(255, 255, 255, 0.04);
+  transition: 0.3s ease;
+}
+
+.notification-row:hover {
+  background: rgba(255, 204, 0, 0.15);
+}
+
+.clear-btn {
+  font-size: 12px;
+  cursor: pointer;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.clear-btn:hover {
+  color: #ffd700;
+}
+
+/* Smooth animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== RIGHT SECTION STACK ===== */
+.right-section {
+  display: flex;
+  flex-direction: column;   /* 👈 vertical */
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== BELL ICON ===== */
+.bell-icon {
+  font-size: 22px;
+  cursor: pointer;
+  color: #ffcc00;
+  transition: 0.3s ease;
+}
+
+.bell-icon:hover {
+  transform: scale(1.15);
+  text-shadow: 0 0 12px rgba(255, 204, 0, 0.7);
+}
+.sos-btn {
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #ff2e2e;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.sos-btn:hover {
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.7);
+  transform: translateY(-2px);
+}
+.ride-live {
+  border: 2px solid #00ff88;
+  background: linear-gradient(
+    135deg,
+    rgba(0,255,136,0.08),
+    rgba(0,0,0,0.8)
+  );
+  box-shadow: 0 0 25px rgba(0,255,136,0.3);
+}
+
+.live-badge {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: #00ff88;
+  color: black;
+  font-weight: 600;
+  border-radius: 20px;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px #00ff88; }
+  50% { box-shadow: 0 0 20px #00ff88; }
+  100% { box-shadow: 0 0 5px #00ff88; }
+}
+/* Confirmed & On The Way Badge */
+.info-badge {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba(0,255,136,0.15);
+  border: 1px solid #00ff88;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Live Ride Glow */
+.ride-live {
+  border: 2px solid #00ff88;
+  background: linear-gradient(
+    135deg,
+    rgba(0,255,136,0.08),
+    rgba(0,0,0,0.9)
+  );
+  box-shadow: 0 0 25px rgba(0,255,136,0.3);
+}
+
+/* Ride In Progress Badge */
+.live-badge {
+  margin-top: 15px;
+  padding: 10px 18px;
+  background: #00ff88;
+  color: black;
+  font-weight: 700;
+  border-radius: 25px;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px #00ff88; }
+  50% { box-shadow: 0 0 20px #00ff88; }
+  100% { box-shadow: 0 0 5px #00ff88; }
+}
+/* ===== ACCEPTED (Subtle Border) ===== */
+.ride-accepted {
+  border: 1.5px solid #00ff88;
+  background: rgba(0, 255, 136, 0.03);
+}
+
+/* ===== STARTED (Full Glow) ===== */
+.ride-started {
+  border: 2px solid #00ff88;
+  background: linear-gradient(
+    135deg,
+    rgba(0,255,136,0.08),
+    rgba(0,0,0,0.9)
+  );
+  box-shadow: 0 0 25px rgba(0,255,136,0.35);
+  transition: 0.3s ease;
+}
+
+/* ===== COMPLETED (Soft Background) ===== */
+.ride-completed {
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0,255,136,0.4);
+}
+
+/* ===== INFO BADGE ===== */
+.info-badge {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba(0,255,136,0.12);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* ===== LIVE BADGE ===== */
+.live-badge {
+  margin-top: 15px;
+  padding: 10px 18px;
+  background: #00ff88;
+  color: black;
+  font-weight: 700;
+  border-radius: 25px;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px #00ff88; }
+  50% { box-shadow: 0 0 20px #00ff88; }
+  100% { box-shadow: 0 0 5px #00ff88; }
+}
+
+/* ===== COMPLETED BADGE ===== */
+.complete-badge {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background: rgba(0,255,136,0.15);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+}
+/* ===== RIDE ACTION BUTTONS ===== */
+.ride-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;   /* 👈 spacing between buttons */
+  margin-top: 12px;
+}
+
+/* View Details Button */
+.details-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.details-btn:hover {
+  background: #222;
+}
+
+/* Rate Button */
+.rate-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #ffaa00, #ff8800);
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.rate-btn:hover {
+  box-shadow: 0 0 15px rgba(255,170,0,0.6);
+  transform: translateY(-2px);
+}
+/* ===== NOTIFICATION DROPDOWN ===== */
+
+.notification-wrapper {
+  position: relative;
+}
+
+.notification-card {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 320px;
+  max-height: 350px;
+  overflow-y: auto;
+
+  background: rgba(18,18,18,0.98);
+  backdrop-filter: blur(18px);
+
+  border-radius: 18px;
+  padding: 15px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+
+  animation: slideIn 0.25s ease forwards;
+  z-index: 9999;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ffd700;
+}
+
+.notification-row {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
+
+  background: rgba(255,255,255,0.05);
+  transition: 0.2s ease;
+}
+
+.notification-row:hover {
+  background: rgba(0,255,136,0.12);
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  padding: 15px 0;
+}
+/* ===== DASHBOARD WRAPPER ===== */
+
+.dashboard {
+  padding: 60px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== SECTION TITLE ===== */
+
+.dashboard h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* ===== RECENT RIDES GRID ===== */
+
+.recent-rides {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ===== RIDE CARD ===== */
+
+.recent-rides .ride-card {
+  padding: 24px;
+  border-radius: 20px;
+}
+@media (max-width: 1200px) {
+  .dashboard {
+    padding: 50px 30px;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .right-section {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .ride-list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 40px 20px;
+  }
+
+  .welcome {
+    font-size: 24px;
+  }
+
+  .action-links {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .ride-list {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ride-card {
+    width: 100%;
+  }
+
+  .notification-card {
+    width: 90vw;
+    right: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 30px 15px;
+  }
+
+  .card p {
+    font-size: 28px;
+  }
+
+  .rating-modal {
+    width: 95%;
+  }
+
+  .right-section {
+    gap: 10px;
+  }
+
+  .book-btn,
+  .logout-btn {
+    width: 100%;
+  }
+}
+.status-expired{
+background:#ff4d4d;
+color:white;
+}

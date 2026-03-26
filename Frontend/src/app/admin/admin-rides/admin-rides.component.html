@@ -1,0 +1,102 @@
+<div class="rides-container">
+
+  <div class="header">
+    <h1>🚕 All Rides</h1>
+
+    <div class="filters">
+      <input
+        type="text"
+        placeholder="Search pickup / drop..."
+        [(ngModel)]="searchText"
+        (input)="applyFilters()">
+
+      <select [(ngModel)]="statusFilter" (change)="applyFilters()">
+        <option value="">All Status</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+        <option value="expired">Expired</option>
+      </select>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading rides...
+  </div>
+
+  <table *ngIf="!loading && filteredRides.length">
+
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Driver</th>
+        <th>Pickup</th>
+        <th>Drop</th>
+        <th>Fare</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let ride of filteredRides">
+
+        <td>{{ride.userId?.name}}</td>
+
+        <td>
+          {{ride.driverId?.name || "Not Assigned"}}
+        </td>
+
+        <td>{{ride.pickup}}</td>
+
+        <td>{{ride.drop}}</td>
+
+        <td class="fare">₹{{ride.fare}}</td>
+
+        <td>{{ride.createdAt | date:'dd MMM yyyy'}}</td>
+
+        <td>
+          <span class="status" [ngClass]="ride.status">
+            {{ride.status}}
+          </span>
+        </td>
+
+        <td>
+
+          <!-- Assign Driver -->
+          <div *ngIf="!ride.driverId">
+
+            <select [(ngModel)]="selectedDriver[ride._id]" class="driver-select">
+              <option value="">Select Driver</option>
+
+              <option *ngFor="let d of drivers" [ngValue]="d._id">
+                {{d.name}}
+              </option>
+            </select>
+
+            <button class="assign-btn" (click)="assignDriver(ride._id)">
+              Assign
+            </button>
+
+          </div>
+
+          <div *ngIf="ride.driverId">
+            Assigned
+          </div>
+          <button
+              *ngIf="ride.status === 'completed'"
+              (click)="downloadInvoice(ride._id)"
+              class="invoice-btn">
+              🧾 Bill
+        </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-footer">
+    <button class="back-btn" routerLink="/admin">
+      ← Back to Dashboard
+    </button>
+  </div>
+</div>

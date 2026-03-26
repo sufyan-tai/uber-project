@@ -1,0 +1,21 @@
+<div class="profile-container">
+
+  <h2>👤 My Profile</h2>
+
+  <div class="profile-card">
+
+    <div class="avatar">
+      {{ user?.name?.charAt(0) || 'U' }}
+    </div>
+
+    <div class="info">
+      <p><strong>Name:</strong> {{ user?.name }}</p>
+      <p><strong>Email:</strong> {{ user?.email }}</p>
+    </div>
+
+  </div>
+
+  <button routerLink="/user/dashboard" class="back-btn">
+    ← Back to Dashboard
+  </button>
+</div>

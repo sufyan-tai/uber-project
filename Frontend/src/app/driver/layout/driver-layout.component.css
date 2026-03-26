@@ -1,0 +1,73 @@
+.driver-layout {
+  display: flex;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  color: white;
+}
+
+.sidebar {
+  width: 240px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #aaa;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: linear-gradient(135deg, #00ff88, #00c853);
+  color: black;
+  font-weight: 600;
+}
+
+.logout-btn {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #ff2e2e;
+  color: white;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  padding: 50px;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 80px;
+  }
+
+  nav a {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .content {
+    padding: 25px;
+  }
+}

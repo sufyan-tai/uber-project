@@ -1,0 +1,112 @@
+<div class="driver-panel">
+
+<!-- HEADER -->
+
+<div class="header">
+<h1>🚗 Driver Panel</h1>
+
+
+<a routerLink="/admin" class="back-btn">
+← Back to Dashboard
+</a>
+
+</div>
+
+<!-- DRIVER INFO -->
+
+<div class="driver-card" *ngIf="driver">
+
+<h2>{{driver.name}}</h2>
+
+<p>Email: {{driver.email}}</p>
+
+<p>Car Number: {{driver.carNumber}}</p>
+
+<p>
+Status:
+<span class="online" *ngIf="driver.isOnline">Online</span>
+<span class="offline" *ngIf="!driver.isOnline">Offline</span>
+</p>
+
+<p>
+Available:
+<span class="available" *ngIf="driver.isAvailable">Yes</span>
+<span class="busy" *ngIf="!driver.isAvailable">No</span>
+</p>
+
+</div>
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>Total Rides</h3>
+<p>{{stats.totalRides}}</p>
+</div>
+
+<div class="stat-card completed">
+<h3>Completed</h3>
+<p>{{stats.completed}}</p>
+</div>
+
+<div class="stat-card cancelled">
+<h3>Cancelled</h3>
+<p>{{stats.cancelled}}</p>
+</div>
+
+<div class="stat-card earnings">
+<h3>Total Earnings</h3>
+<p>₹{{stats.earnings}}</p>
+</div>
+
+</div>
+
+<h2 class="ride-title">Driver Rides</h2>
+
+<!-- LOADING -->
+
+<div *ngIf="loading">
+Loading rides...
+</div>
+
+<!-- NO RIDES -->
+
+<div *ngIf="!loading && rides.length === 0" class="no-rides">
+No rides found for this driver
+</div>
+
+<!-- TABLE -->
+
+<table *ngIf="!loading && rides.length > 0">
+
+<thead>
+<tr>
+<th>Pickup</th>
+<th>Drop</th>
+<th>Fare</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr *ngFor="let ride of rides">
+
+<td>{{ride.pickup}}</td>
+<td>{{ride.drop}}</td>
+<td>₹{{ride.fare}}</td>
+
+<td>
+<span class="status" [ngClass]="ride.status">
+{{ride.status}}
+</span>
+</td>
+
+<td>{{ride.createdAt | date:'dd MMM yyyy'}}</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>

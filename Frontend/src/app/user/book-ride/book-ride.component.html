@@ -1,0 +1,61 @@
+<div class="booking-wrapper">
+
+  <div class="booking-card">
+
+    <div class="header">
+      <h2>🚗 Book Your Ride</h2>
+      <button class="back-btn" routerLink="/user/dashboard">
+        ← Back
+      </button>
+    </div>
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>Pickup Location</label>
+        <input type="text" [(ngModel)]="pickup" placeholder="Enter pickup">
+      </div>
+
+      <div class="field">
+        <label>Drop Location</label>
+        <input type="text" [(ngModel)]="drop" placeholder="Enter drop">
+      </div>
+
+      <div class="field">
+        <label>Car Type</label>
+        <select [(ngModel)]="carType">
+          <option value="Mini">Mini</option>
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Payment Method</label>
+        <select [(ngModel)]="paymentMethod">
+          <option value="">Select Payment</option>
+          <option value="Cash">Cash</option>
+          <option value="UPI">UPI</option>
+          <option value="Card">Card</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Ride Mood</label>
+        <select [(ngModel)]="rideMood">
+          <option value="Silent">😌 Silent</option>
+          <option value="Music">🎵 Music</option>
+          <option value="Friendly">💬 Friendly</option>
+          <option value="Fastest">🚀 Fastest</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button class="confirm-btn" (click)="bookRide()">
+      Confirm Ride
+    </button>
+
+  </div>
+
+</div>

@@ -1,0 +1,216 @@
+<div class="dashboard">
+
+  <!-- ===== HEADER ===== -->
+  <div class="dashboard-header">
+
+    <div class="left-section">
+      <h2 class="welcome">
+        👋 Welcome, {{ user?.name || 'User' }}
+      </h2>
+
+      <div class="action-links">
+        <span class="nav-link" (click)="goToProfile()">Profile</span>
+
+        <button class="book-btn" routerLink="/user/book">
+          ➕ Book New Ride
+        </button>
+
+        <span class="nav-link" (click)="goToHistory()">Ride History</span>
+       <span class="nav-link" (click)="goToAbout()">About Us</span>
+       <span class="nav-link" (click)="goToContact()">Contact Us</span>
+      </div>
+    </div>
+
+    <div class="right-section">
+
+      <div class="notification-wrapper">
+
+  <div 
+    class="bell-icon"
+    (click)="toggleNotifications(); $event.stopPropagation()">
+
+    🔔
+    <span *ngIf="unreadCount > 0" class="badge">
+      {{ unreadCount }}
+    </span>
+  </div>
+
+  <!-- Dropdown -->
+  <div 
+    class="notification-card"
+    *ngIf="showNotifications">
+
+    <div class="notification-header">
+      🔔 Notifications
+      <span 
+        class="clear-btn"
+        (click)="notifications = []">
+        Clear
+      </span>
+    </div>
+
+    <div 
+      class="notification-row"
+      *ngFor="let note of notifications">
+      {{ note }}
+    </div>
+
+    <div *ngIf="notifications.length === 0" class="empty">
+      No new notifications
+    </div>
+
+  </div>
+
+</div>
+
+      <button class="logout-btn" (click)="logout()">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ===== STATS ===== -->
+  <div class="stats">
+    <div class="card total">
+      <h3>Total Rides</h3>
+      <p>{{ totalRides }}</p>
+    </div>
+
+    <div class="card pending">
+      <h3>Pending</h3>
+      <p>{{ pendingRides }}</p>
+    </div>
+
+    <div class="card completed">
+      <h3>Completed</h3>
+      <p>{{ completedRides }}</p>
+    </div>
+  </div>
+
+  <!-- ===== ACTIVE RIDE ===== -->
+  <div 
+    class="active-card"
+    *ngIf="activeRide"
+    [ngClass]="{
+      'ride-live': activeRide.status === 'started'
+    }">
+
+    <h3>🚗 Active Ride</h3>
+
+    <p><strong>Pickup:</strong> {{ activeRide.pickup }}</p>
+    <p><strong>Drop:</strong> {{ activeRide.drop }}</p>
+    <p><strong>Car Type:</strong> {{ activeRide.carType }}</p>
+    <p><strong>Fare:</strong> ₹{{ activeRide.fare }}</p>
+
+    <p>
+      <strong>Status:</strong>
+      <span class="status status-{{ activeRide.status }}">
+        {{ activeRide.status | titlecase }}
+      </span>
+    </p>
+
+    <div *ngIf="activeRide.status === 'accepted'" class="info-badge">
+      ✅ Ride Confirmed
+    </div>
+
+    <div *ngIf="activeRide.status === 'on_the_way'" class="info-badge">
+      🚘 Driver On The Way
+    </div>
+
+    <div *ngIf="activeRide.status === 'started'" class="live-badge">
+      🚀 Ride In Progress
+    </div>
+
+    <div *ngIf="activeRide.status === 'completed'" class="complete-badge">
+      🎉 Ride Completed
+    </div>
+
+  </div>
+
+  <!-- ===== RECENT RIDES ===== -->
+  <h3 class="recent-title">Recent Rides</h3>
+
+  <div class="ride-list">
+
+    <div class="ride-card"
+         *ngFor="let ride of rides | slice:0:6">
+
+      <p class="route">
+        {{ ride.pickup }} → {{ ride.drop }}
+      </p>
+
+      <p>
+        Status:
+        <span class="status status-{{ ride.status }}">
+          {{ ride.status | titlecase }}
+        </span>
+      </p>
+
+      <p>Fare: ₹ {{ ride.fare }}</p>
+
+     <div class="ride-actions">
+        <button 
+        type="button"
+        class="details-btn"
+        (click)="goToRideDetails(ride._id)">
+        View Details
+      </button>
+
+      <button
+        *ngIf="ride.status === 'completed' && !ride.rating"
+        type="button"
+        class="rate-btn"
+        (click)="openRating(ride)">
+        ⭐ Rate Ride
+      </button>
+     </div>
+
+      <div *ngIf="ride.rating" class="rating-display">
+        ⭐ {{ ride.rating }}/5
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="rating-overlay" *ngIf="selectedRide">
+
+  <div class="rating-modal">
+
+    <h2>⭐ Rate Your Ride</h2>
+
+    <p class="ride-route">
+      {{ selectedRide.pickup }} → {{ selectedRide.drop }}
+    </p>
+
+    <div class="star-container">
+      <span
+        *ngFor="let star of [1,2,3,4,5]"
+        (click)="ratingValue = star"
+        [class.active]="star <= ratingValue">
+        ★
+      </span>
+    </div>
+
+    <textarea
+      placeholder="Write your review..."
+      [(ngModel)]="reviewText">
+    </textarea>
+
+    <div class="rating-actions">
+      <button type="button" class="submit-btn" (click)="submitRating()">
+        Submit
+      </button>
+
+      <button type="button" class="cancel-btn2" (click)="selectedRide = null">
+        Cancel
+      </button>
+    </div>
+
+  </div>
+
+</div>

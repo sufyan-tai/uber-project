@@ -1,0 +1,74 @@
+<div class="drivers-container">
+
+<div class="header">
+
+<h1>🚗 Manage Drivers</h1>
+
+<input
+type="text"
+placeholder="Search driver..."
+[(ngModel)]="searchText"
+(input)="applySearch()"
+class="search-input">
+
+</div>
+
+<table *ngIf="!loading">
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Car Number</th>
+<th>Status</th>
+<th>Available</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr *ngFor="let driver of filteredDrivers">
+
+<td>
+<a [routerLink]="['/admin/driver-panel',driver._id]">
+{{driver.name}}
+</a>
+</td>
+
+<td>{{driver.email}}</td>
+
+<td>{{driver.carNumber}}</td>
+
+<td>
+
+<span class="status online" *ngIf="driver.isOnline">
+Online
+</span>
+
+<span class="status offline" *ngIf="!driver.isOnline">
+Offline
+</span>
+
+</td>
+
+<td>
+
+<span class="status available" *ngIf="driver.isAvailable">
+Available
+</span>
+
+<span class="status busy" *ngIf="!driver.isAvailable">
+Busy
+</span>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>

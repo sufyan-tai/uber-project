@@ -1,0 +1,66 @@
+<div class="auth-container">
+  <div class="auth-box">
+
+    <h1>Create Account</h1>
+    <p class="subtitle">Register to continue</p>
+
+    <div class="role-selector">
+      <div 
+        class="role-card"
+        [class.active]="role === 'user'"
+        (click)="role='user'">
+        👤 User
+      </div>
+
+      <div 
+        class="role-card"
+        [class.active]="role === 'driver'"
+        (click)="role='driver'">
+        🚗 Driver
+      </div>
+
+      <div 
+        class="role-card"
+        [class.active]="role === 'admin'"
+        (click)="role='admin'">
+        🛠 Admin
+      </div>
+    </div>
+
+    <form autocomplete="off" (ngSubmit)="register()">
+
+      <div class="input-group">
+        <input
+          type="text"
+          placeholder="Full Name"
+          [(ngModel)]="name"
+          name="name"
+        />
+      </div>
+
+      <div class="input-group">
+        <input
+          type="email"
+          placeholder="Email Address"
+          [(ngModel)]="email"
+          name="email"
+        />
+      </div>
+
+      <div class="input-group">
+        <input
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+        />
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Create Account
+      </button>
+
+    </form>
+
+  </div>
+</div>

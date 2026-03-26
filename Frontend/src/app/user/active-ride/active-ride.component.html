@@ -1,0 +1,24 @@
+<div class="active-container" *ngIf="ride; else noRide">
+
+  <h2>🚕 Active Ride</h2>
+
+  <p><b>Pickup:</b> {{ ride.pickup }}</p>
+  <p><b>Drop:</b> {{ ride.drop }}</p>
+  <p><b>Fare:</b> ₹{{ ride.fare }}</p>
+
+  <p>
+    <b>Status:</b>
+    <span class="status">{{ ride.status }}</span>
+  </p>
+
+  <button
+    *ngIf="ride.status === 'Pending'"
+    (click)="cancelRide(ride._id)">
+    Cancel Ride
+  </button>
+
+</div>
+
+<ng-template #noRide>
+  <h3>No active ride</h3>
+</ng-template>

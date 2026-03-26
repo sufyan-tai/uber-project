@@ -1,0 +1,36 @@
+.active-bg {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+.ride-card {
+  background: rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 15px;
+  width: 400px;
+  margin-top: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.status-box {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.accepted {
+  background: orange;
+}
+
+.ongoing {
+  background: green;
+}
+
+.no-ride {
+  margin-top: 30px;
+  font-size: 18px;
+}

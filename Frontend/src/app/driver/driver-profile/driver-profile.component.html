@@ -1,0 +1,76 @@
+<div class="profile-container">
+
+  <!-- BACK BUTTON -->
+  <div class="top-bar">
+    <button routerLink="/driver">⬅ Back</button>
+  </div>
+
+  <!-- DRIVER CARD -->
+  <div class="profile-card" *ngIf="driver">
+    <div class="avatar">
+      {{ driver.name?.charAt(0) }}
+    </div>
+
+    <div class="info">
+      <h2>{{ driver.name }}</h2>
+      <p>{{ driver.email }}</p>
+      <p>🚗 {{ driver.carNumber || 'GJ-15-SA-1111' }}</p>
+
+      <div class="availability">
+        <span class="online">🟢 Active Driver</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOADING STATE -->
+  <div *ngIf="loading" class="card">
+    Loading profile data...
+  </div>
+
+  <!-- RATING SECTION -->
+  <div class="card" *ngIf="ratings">
+    <h3>⭐ Rating Summary</h3>
+    <h2>⭐ {{ ratings.average }} / 5</h2>
+    <p>{{ ratings.totalRatings }} Reviews</p>
+  </div>
+
+  <div class="card" *ngIf="earnings">
+  <h3>💼 Financial Summary</h3>
+
+  <div class="financial-grid">
+
+    <div class="finance-card">
+      <h4>Total Revenue</h4>
+      <p>₹ {{ earnings.totalFare || 0 }}</p>
+    </div>
+
+    <div class="finance-card commission">
+      <h4>Platform Commission</h4>
+      <p>₹ {{ earnings.totalCommission || 0 }}</p>
+    </div>
+
+    <div class="finance-card net">
+      <h4>Net Earnings</h4>
+      <p>₹ {{ earnings.totalDriverEarning || 0 }}</p>
+    </div>
+
+    <div class="finance-card">
+      <h4>Completed Rides</h4>
+      <p>{{ earnings.completed || 0 }}</p>
+    </div>
+
+  </div>
+</div>
+
+  <!-- REVIEWS -->
+  <div class="card" *ngIf="ratings?.reviews?.length">
+    <h3>💬 Reviews</h3>
+
+    <div *ngFor="let r of ratings.reviews" class="review-item">
+      <strong>{{ r.pickup }} → {{ r.drop }}</strong>
+      <p>⭐ {{ r.rating }}</p>
+      <p>{{ r.review }}</p>
+    </div>
+  </div>
+
+</div>

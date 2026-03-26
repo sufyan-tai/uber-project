@@ -1,0 +1,99 @@
+<div class="admin-container">
+
+  <!-- HEADER -->
+  <div class="admin-header">
+
+    <div class="logo">
+      🚕 <span>Admin Dashboard</span>
+    </div>
+
+    <div class="admin-actions">
+
+      <button class="view-btn" routerLink="/admin/rides">
+        🚕 View All Rides
+      </button>
+
+      <button class="admin-btn" routerLink="/admin/users">
+        👤 Manage Users
+      </button>
+
+      <button class="admin-btn" routerLink="/admin/drivers">
+        🚗 Manage Drivers
+      </button>
+      <button routerLink="/admin/reports" class="nav-btn">
+        📊 Reports
+      </button>
+
+    </div>
+
+    <div class="logout-section">
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+
+  </div>
+
+  <div class="stats-grid">
+
+    <div class="card users">
+      <span class="icon">👤</span>
+      <h3>Total Users</h3>
+      <p>{{stats?.users}}</p>
+    </div>
+
+    <div class="card drivers">
+      <span class="icon">🚗</span>
+      <h3>Total Drivers</h3>
+      <p>{{stats?.drivers}}</p>
+    </div>
+
+    <div class="card rides">
+      <span class="icon">📊</span>
+      <h3>Total Rides</h3>
+      <p>{{stats?.rides}}</p>
+    </div>
+
+    <div class="card completed">
+      <span class="icon">✅</span>
+      <h3>Completed</h3>
+      <p>{{stats?.completed}}</p>
+    </div>
+
+    <div class="card cancelled">
+      <span class="icon">❌</span>
+      <h3>Cancelled</h3>
+      <p>{{stats?.cancelled}}</p>
+    </div>
+
+    <div class="card pending">
+      <span class="icon">⏳</span>
+      <h3>Pending</h3>
+      <p>{{stats?.pending}}</p>
+    </div>
+
+    <div class="card active">
+      <span class="icon">🚕</span>
+      <h3>Active</h3>
+      <p>{{stats?.active}}</p>
+    </div>
+
+    <div class="card expired">
+      <span class="icon">⌛</span>
+      <h3>Expired</h3>
+      <p>{{stats?.expired}}</p>
+    </div>
+
+  </div>
+  <div class="chart-card">
+
+  <h3>Weekly Ride Analytics</h3>
+
+  <canvas
+    baseChart
+    [data]="chartData"
+    [type]="chartType"
+    [options]="chartOptions">
+  </canvas>
+
+</div>
+
+</div>

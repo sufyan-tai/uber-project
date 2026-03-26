@@ -1,0 +1,175 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000, #0f2027);
+  color: white;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background: #111;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.sidebar a {
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #00ff9d;
+  color: black;
+}
+
+.logout {
+  margin-top: auto;
+  padding: 10px;
+  border: none;
+  background: #ff4d4d;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.topbar {
+  font-size: 18px;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.page {
+  animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 992px) {
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 15px 10px;
+  }
+
+  .sidebar h2 {
+    display: none;
+  }
+
+  .sidebar a {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .sidebar .logout {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .dashboard {
+    padding: 30px 15px;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .right-section {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .ride-list {
+    flex-direction: column;
+  }
+
+  .ride-card {
+    width: 100%;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .sidebar {
+    padding: 12px 5px;
+    gap: 8px;
+  }
+
+  .sidebar a {
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  .dashboard-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .left-section {
+    align-items: center;
+  }
+
+  .action-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .right-section {
+    justify-content: center;
+  }
+
+  .stats {
+    margin-top: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+}

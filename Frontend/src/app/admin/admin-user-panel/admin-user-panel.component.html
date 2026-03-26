@@ -1,0 +1,80 @@
+<div class="user-panel">
+
+<h1>👤 User Panel</h1>
+<div class="top-actions">
+<a routerLink="/admin" class="back-btn">
+← Back to Dashboard
+</a>
+</div>
+
+<!-- USER PROFILE -->
+
+<div class="profile-card">
+
+<h2>{{user?.name}}</h2>
+
+<p>Email: {{user?.email}}</p>
+<p>Phone: {{user?.phone || '-'}}</p>
+<p>Joined: {{user?.createdAt | date:'dd MMM yyyy'}}</p>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats-grid">
+
+<div class="card">
+<h3>Total Rides</h3>
+<p>{{stats.total}}</p>
+</div>
+
+<div class="card completed">
+<h3>Completed</h3>
+<p>{{stats.completed}}</p>
+</div>
+
+<div class="card cancelled">
+<h3>Cancelled</h3>
+<p>{{stats.cancelled}}</p>
+</div>
+
+</div>
+
+<h2 class="ride-title">Recent Rides</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Pickup</th>
+<th>Drop</th>
+<th>Fare</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr *ngFor="let ride of rides">
+
+<td>{{ride.pickup}}</td>
+<td>{{ride.drop}}</td>
+<td>₹{{ride.fare}}</td>
+
+<td>
+<span class="status" [ngClass]="ride.status">
+{{ride.status}}
+</span>
+</td>
+
+<td>{{ride.createdAt | date:'dd MMM yyyy'}}</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+</div>

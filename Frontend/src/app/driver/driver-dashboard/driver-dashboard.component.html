@@ -1,0 +1,233 @@
+<!-- 🚗 Ride Notification Popup -->
+<div *ngIf="showRideAlert" class="ride-alert">
+
+  <h3>🚗 New Ride Request</h3>
+  <p>
+    {{ pendingRides[0]?.pickup }} → {{ pendingRides[0]?.drop }}
+  </p>
+  <p>
+    Fare: ₹{{ pendingRides[0]?.fare }}
+  </p>
+  <p class="timer">
+    Accept in {{ countdown }} sec ⏱
+  </p>
+  <button (click)="accept(pendingRides[0]._id)">
+    Accept Ride
+  </button>
+
+  <button (click)="openRejectPopup()">
+  Reject
+</button>
+</div>
+<div *ngIf="showRejectBox" class="reject-popup">
+<h3>Reject Ride</h3>
+<select [(ngModel)]="rejectReason">
+<option value="Traffic">Traffic</option>
+<option value="Too Far">Too Far</option>
+<option value="Vehicle Issue">Vehicle Issue</option>
+
+</select>
+
+<div class="reject-actions">
+<button (click)="confirmReject()">Confirm</button>
+<button (click)="showRejectBox=false">Cancel</button>
+</div>
+</div>
+
+<div class="driver-container">
+<div class="dashboard-header">
+
+  <div class="left-actions">
+    <h1>🚗 Driver Dashboard</h1>
+
+    <button routerLink="/driver/profile" class="profile-btn">
+      👤 My Profile
+    </button>
+
+    <a routerLink="/driver/history" class="history-btn">
+      📜 Ride History
+    </a>
+
+    <button routerLink="/driver/analytics" class="analytics-btn">
+      📊 View Analytics
+    </button>
+
+    <button
+      class="toggle-btn"
+      [ngClass]="isOnline ? 'online' : 'offline'"
+      (click)="toggleStatus()">
+
+      {{ isOnline ? '🟢 Online' : '🔴 Offline' }}
+
+    </button>
+  </div>
+
+
+  <div class="right-actions">
+
+    <!-- 🔔 Notification -->
+    <div class="notification-wrapper">
+
+      <div class="bell-icon" (click)="toggleNotifications()">
+        🔔
+        <span *ngIf="unreadCount > 0" class="badge">
+          {{ unreadCount }}
+        </span>
+      </div>
+
+      <div class="notification-card" *ngIf="showNotifications">
+
+        <div class="notification-header">
+          Driver Notifications
+        </div>
+
+        <div class="notification-row" *ngFor="let n of notifications">
+          {{ n }}
+        </div>
+
+        <div *ngIf="notifications.length === 0" class="empty">
+          No notifications
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="logout-btn" (click)="logout()">
+      ⏻ Logout
+    </button>
+
+  </div>
+
+</div>
+
+<!-- STATS -->
+<div class="stats-grid">
+
+  <div class="stat-card">
+    <h4>Total</h4>
+    <h2>{{ stats.total || 0 }}</h2>
+  </div>
+
+  <div class="stat-card">
+    <h4>Accepted</h4>
+    <h2>{{ stats.accepted || 0 }}</h2>
+  </div>
+
+  <div class="stat-card">
+    <h4>Started</h4>
+    <h2>{{ stats.started || 0 }}</h2>
+  </div>
+
+  <div class="stat-card">
+    <h4>Completed</h4>
+    <h2>{{ stats.completed || 0 }}</h2>
+  </div>
+
+  <div class="stat-card commission">
+    <h4>Platform Commission</h4>
+    <h2>₹ {{ stats.totalCommission || 0 }}</h2>
+  </div>
+
+  <div class="stat-card net">
+    <h4>Net Received</h4>
+    <h2>₹ {{ stats.totalDriverEarning || 0 }}</h2>
+  </div>
+
+  <div class="stat-card earnings">
+    <h4>Total Fare</h4>
+    <h2>₹ {{ stats.totalFare || 0 }}</h2>
+  </div>
+</div>
+
+<div class="performance-section">
+  <h2>📊 Driver Performance</h2>
+  <div class="performance-grid">
+
+    <div class="perf-card">
+      <h4>Average Rating</h4>
+      <h2>⭐ {{ performance.avgRating }}</h2>
+    </div>
+
+    <div class="perf-card">
+      <h4>Total Distance</h4>
+      <h2>{{ performance.totalDistance }} km</h2>
+    </div>
+
+    <div class="perf-card">
+      <h4>Cash Rides</h4>
+      <h2>{{ performance.cashRides }}</h2>
+    </div>
+
+    <div class="perf-card">
+      <h4>Online Payments</h4>
+      <h2>{{ performance.onlineRides }}</h2>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ACTIVE RIDE CARD -->
+<div *ngIf="activeRide" class="active-ride-card">
+
+  <h2>🚗 Active Ride</h2>
+
+  <p><b>Pickup:</b> {{ activeRide.pickup }}</p>
+  <p><b>Drop:</b> {{ activeRide.drop }}</p>
+  <p><b>Fare:</b> ₹{{ activeRide.fare }}</p>
+
+  <div>
+
+    <button
+      class="on-the-way-btn"
+      *ngIf="activeRide.status === 'accepted'"
+      (click)="onTheWay(activeRide._id)">
+      On The Way
+    </button>
+
+    <button
+  class="start-btn"
+  *ngIf="activeRide.status === 'on_the_way'"
+  (click)="start(activeRide._id)">
+  Start Ride
+</button>
+
+<button
+  class="complete-btn"
+  *ngIf="activeRide.status === 'started'"
+  (click)="complete(activeRide._id)">
+  Complete Ride
+</button>
+
+  </div>
+
+</div>
+
+
+<!-- PENDING RIDES -->
+<div class="pending-section">
+
+  <h3>📥 Pending Requests ({{ pendingRides.length }})</h3>
+
+  <div *ngIf="pendingRides.length === 0" class="no-ride">
+    No pending rides 🚫
+  </div>
+
+  <div class="ride-grid">
+
+    <div *ngFor="let ride of pendingRides" class="ride-card">
+
+      <div class="ride-info">
+        <h4>{{ ride.pickup }} → {{ ride.drop }}</h4>
+        <p>₹ {{ ride.fare }}</p>
+      </div>
+      <button
+        (click)="accept(ride._id)"
+        [disabled]="activeRide">
+        Accept Ride
+      </button>
+    </div>
+  </div>
+</div>
+</div>
