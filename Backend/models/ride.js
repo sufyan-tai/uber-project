@@ -36,7 +36,8 @@ const rideSchema = new mongoose.Schema({
       "started",
       "completed",
       "cancelled",
-      "expired"
+      "expired",
+      "assigned"
     ],
     default: "pending"
   },

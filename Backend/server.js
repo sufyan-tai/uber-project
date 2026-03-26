@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const driverRoutes = require('./routes/driver');
+const adminRoutes = require('./routes/admin');
 require("./config/db");
 
 const Ride = require("./models/Ride");
@@ -15,6 +16,8 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/user", require("./routes/user"));
 app.use("/api/driver", require("./routes/driver"));
 app.use("/api/rides", require("./routes/rides"));
+app.use("/api/admin", adminRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("Backend Working Fine");
